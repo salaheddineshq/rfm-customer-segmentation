@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Analytics</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="dashboard.html" class="brand">
+            <i class='bx bxs-data icon'></i> 
+            <span>Analytics</span>
+        </a>
+        <ul class="side-menu">
+            <li><a href="dashboard.html"><i class='bx bxs-dashboard icon'></i> Dashboard</a></li>
+            
+            <li class="divider" data-text="Analytics">Analytics</li>
+            <li><a href="customers.html"><i class='bx bxs-user-detail icon'></i> Customers</a></li>
+            <li><a href="products.html" class="active"><i class='bx bxs-package icon'></i> Products</a></li>
+            
+            <li class="divider" data-text="Information">Information</li>
+            <li><a href="documentation.html"><i class='bx bxs-book-content icon'></i> Documentation</a></li>
+            <li><a href="help.html"><i class='bx bxs-help-circle icon'></i> Help & Support</a></li>
+            
+            <li class="divider" data-text="Settings">Settings</li>
+            <li><a href="#"><i class='bx bxs-cog icon'></i> Settings</a></li>
+        </ul>
+        <div class="ads">
+            <div class="wrapper">
+                <p>RFM Analytics <span>Pro</span></p>
+                <p class="version">v2.0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu toggle-sidebar'></i>
+            <form action="#" onsubmit="return false;">
+                <div class="form-group">
+                    <input type="text" id="productSearch" placeholder="Search products...">
+                    <i class='bx bx-search icon'></i>
+                </div>
+            </form>
+            <div class="notification-area">
+                <button class="btn-icon" id="refreshBtn" title="Refresh">
+                    <i class='bx bx-refresh'></i>
+                </button>
+            </div>
+            <span class="divider"></span>
+            <div class="profile">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=0078d4&color=fff" alt="Profile">
+                <ul class="profile-link">
+                    <li><a href="#"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
+                    <li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
+                    <li><a href="#"><i class='bx bxs-log-out-circle'></i> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- MAIN -->
+        <main>
+            <h1 class="title">Product Management</h1>
+            <ul class="breadcrumbs">
+                <li><a href="dashboard.html">Home</a></li>
+                <li class="divider">/</li>
+                <li><a href="#" class="active">Products</a></li>
+            </ul>
+
+            <!-- Statistics Cards -->
+            <div class="info-data">
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2 id="totalProducts">-</h2>
+                            <p>Total Products</p>
+                        </div>
+                        <i class='bx bxs-package icon'></i>
+                    </div>
+                    <span class="progress" data-value="100%"></span>
+                    <span class="label">In Stock</span>
+                </div>
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2 id="totalRevenue">-</h2>
+                            <p>Total Revenue</p>
+                        </div>
+                        <i class='bx bxs-dollar-circle icon'></i>
+                    </div>
+                    <span class="progress" data-value="85%"></span>
+                    <span class="label">Sales</span>
+                </div>
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2 id="avgPrice">-</h2>
+                            <p>Average Price</p>
+                        </div>
+                        <i class='bx bxs-bar-chart-alt-2 icon'></i>
+                    </div>
+                    <span class="progress" data-value="60%"></span>
+                    <span class="label">Per Unit</span>
+                </div>
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2 id="totalQuantity">-</h2>
+                            <p>Total Quantity</p>
+                        </div>
+                        <i class='bx bxs-layer icon'></i>
+                    </div>
+                    <span class="progress" data-value="70%"></span>
+                    <span class="label">Units Sold</span>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class='bx bxs-pie-chart-alt-2'></i> Top 10 Products</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="topProductsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class='bx bxs-bar-chart-alt-2'></i> Revenue by Product</h3>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Table -->
+            <div class="products-container">
+                <div class="products-card">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <h3><i class='bx bxs-package'></i> Product Catalog</h3>
+                            <p class="subtitle">All products with purchase details</p>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn-secondary" id="sortBtn">
+                                <i class='bx bx-sort'></i> Sort
+                            </button>
+                            <button class="btn-primary" id="exportProducts">
+                                <i class='bx bx-download'></i> Export
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="products-filters">
+                        <div class="filter-item">
+                            <label><i class='bx bx-search'></i> Search</label>
+                            <input type="text" id="filterSearch" class="form-control" placeholder="Product name...">
+                        </div>
+                        <div class="filter-item">
+                            <label><i class='bx bx-user'></i> Customer</label>
+                            <input type="text" id="filterCustomer" class="form-control" placeholder="Customer ID...">
+                        </div>
+                        <div class="filter-item">
+                            <label><i class='bx bx-dollar'></i> Min Price</label>
+                            <input type="number" id="filterMinPrice" class="form-control" placeholder="$0">
+                        </div>
+                        <div class="filter-item">
+                            <label><i class='bx bx-dollar'></i> Max Price</label>
+                            <input type="number" id="filterMaxPrice" class="form-control" placeholder="$10000">
+                        </div>
+                        <div class="filter-item">
+                            <label>&nbsp;</label>
+                            <button class="btn-search" id="applyFilters">
+                                <i class='bx bx-filter'></i> Apply Filters
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Loading Indicator -->
+                    <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Loading products...</p>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div id="productsGrid" style="display:none;">
+                        <div class="products-controls">
+                            <div class="view-controls">
+                                <button class="view-btn active" data-view="grid">
+                                    <i class='bx bx-grid-alt'></i> Grid
+                                </button>
+                                <button class="view-btn" data-view="list">
+                                    <i class='bx bx-list-ul'></i> List
+                                </button>
+                            </div>
+                            <div class="products-count">
+                                Showing <span id="productCount">0</span> products
+                            </div>
+                            <div class="pagination-controls">
+                                <button id="prevPage" class="btn-icon"><i class='bx bx-chevron-left'></i></button>
+                                <span id="pageInfo" class="page-info">Page 1</span>
+                                <button id="nextPage" class="btn-icon"><i class='bx bx-chevron-right'></i></button>
+                            </div>
+                        </div>
+
+                        <!-- Grid View -->
+                        <div id="gridView" class="grid-view"></div>
+
+                        <!-- List View -->
+                        <div id="listView" class="list-view" style="display:none;">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Product</th>
+                                        <th>Customer ID</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>Subtotal</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="listViewBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- No Results -->
+                    <div id="noProducts" class="no-results" style="display: none;">
+                        <i class='bx bxs-package'></i>
+                        <p>No products found</p>
+                        <button class="btn-secondary" onclick="document.getElementById('applyFilters').click()">
+                            Clear Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script src="products.js"></script>
+</body>
+</html>

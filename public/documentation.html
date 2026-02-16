@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Architecture</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="dashboard.html" class="brand">
+            <i class='bx bxs-data icon'></i> 
+            <span>Analytics</span>
+        </a>
+        <ul class="side-menu">
+            <li><a href="dashboard.html"><i class='bx bxs-dashboard icon'></i> Dashboard</a></li>
+            
+            <li class="divider" data-text="Analytics">Analytics</li>
+            <li><a href="customers.html"><i class='bx bxs-user-detail icon'></i> Customers</a></li>
+            <li><a href="products.html"><i class='bx bxs-package icon'></i> Products</a></li>
+            
+            <li class="divider" data-text="Information">Information</li>
+            <li><a href="documentation.html" class="active"><i class='bx bxs-book-content icon'></i> Documentation</a></li>
+            <li><a href="help.html"><i class='bx bxs-help-circle icon'></i> Help & Support</a></li>
+            
+            <li class="divider" data-text="Settings">Settings</li>
+            <li><a href="#"><i class='bx bxs-cog icon'></i> Settings</a></li>
+        </ul>
+        <div class="ads">
+            <div class="wrapper">
+                <p>RFM Analytics <span>Pro</span></p>
+                <p class="version">v2.0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu toggle-sidebar'></i>
+            <form action="#" onsubmit="return false;">
+                <div class="form-group">
+                    <input type="text" placeholder="Quick search...">
+                    <i class='bx bx-search icon'></i>
+                </div>
+            </form>
+            <div class="notification-area">
+                <button class="btn-icon" title="Refresh">
+                    <i class='bx bx-refresh'></i>
+                </button>
+            </div>
+            <span class="divider"></span>
+            <div class="profile">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=0078d4&color=fff" alt="Profile">
+                <ul class="profile-link">
+                    <li><a href="#"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
+                    <li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
+                    <li><a href="#"><i class='bx bxs-log-out-circle'></i> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- MAIN -->
+        <main>
+            <h1 class="title">Documentation Technique</h1>
+            <ul class="breadcrumbs">
+                <li><a href="dashboard.html">Home</a></li>
+                <li class="divider">/</li>
+                <li><a href="#" class="active">Documentation</a></li>
+            </ul>
+
+            <!-- Tabs Navigation -->
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="architecture">
+                        <i class='bx bxs-network-chart'></i> Architecture
+                    </button>
+                    <button class="tab-btn" data-tab="pipeline">
+                        <i class='bx bxs-cog'></i> Pipeline ML
+                    </button>
+                    <button class="tab-btn" data-tab="database">
+                        <i class='bx bxs-data'></i> Database Schema
+                    </button>
+                    <button class="tab-btn" data-tab="api">
+                        <i class='bx bxs-server'></i> API Reference
+                    </button>
+                    <button class="tab-btn" data-tab="features">
+                        <i class='bx bxs-star'></i> Features
+                    </button>
+                    <button class="tab-btn" data-tab="tech">
+                        <i class='bx bxs-wrench'></i> Technologies
+                    </button>
+                </div>
+
+                <!-- Tab Content: Architecture -->
+                <div class="tab-content active" id="architecture">
+                    <div class="doc-card">
+                        <h2><i class='bx bxs-network-chart'></i> System Architecture</h2>
+                        <p class="subtitle">Architecture 3-Tier + Azure Databricks ML Platform</p>
+                        
+                        <div class="architecture-diagram">
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">
+                                    <i class='bx bxs-desktop'></i>
+                                    <span>Frontend Layer</span>
+                                </div>
+                                <div class="arch-layer-content">
+                                    <div class="tech-badge">HTML5</div>
+                                    <div class="tech-badge">CSS3</div>
+                                    <div class="tech-badge">JavaScript ES6+</div>
+                                    <div class="tech-badge">Chart.js 4.4.0</div>
+                                    <div class="tech-badge">Boxicons 2.0.9</div>
+                                </div>
+                                <div class="arch-layer-desc">
+                                    Interface utilisateur interactive avec dashboard, gestion clients & produits, visualisations RFM
+                                </div>
+                            </div>
+
+                            <div class="arch-arrow">↓</div>
+
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">
+                                    <i class='bx bxs-server'></i>
+                                    <span>Backend Layer (API Server)</span>
+                                </div>
+                                <div class="arch-layer-content">
+                                    <div class="tech-badge">Node.js 14+</div>
+                                    <div class="tech-badge">Express.js 4.18.2</div>
+                                    <div class="tech-badge">REST API</div>
+                                    <div class="tech-badge">mysql2 3.6.5</div>
+                                </div>
+                                <div class="arch-layer-desc">
+                                    Serveur API gérant la logique métier, authentification et communication avec la base de données
+                                </div>
+                            </div>
+
+                            <div class="arch-arrow">↓</div>
+
+                            <div class="arch-layer">
+                                <div class="arch-layer-title">
+                                    <i class='bx bxs-data'></i>
+                                    <span>Database Layer</span>
+                                </div>
+                                <div class="arch-layer-content">
+                                    <div class="tech-badge">MySQL 8.0</div>
+                                    <div class="tech-badge">2 Tables</div>
+                                    <div class="tech-badge">Relational</div>
+                                    <div class="tech-badge">Foreign Keys</div>
+                                </div>
+                                <div class="arch-layer-desc">
+                                    Stockage relationnel des données clients segmentées et produits (rfm_customers, products)
+                                </div>
+                            </div>
+
+                            <div class="arch-arrow">⇅</div>
+
+                            <div class="arch-layer" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <div class="arch-layer-title">
+                                    <i class='bx bxs-brain'></i>
+                                    <span>ML Platform (Azure Databricks)</span>
+                                </div>
+                                <div class="arch-layer-content">
+                                    <div class="tech-badge">Apache Spark</div>
+                                    <div class="tech-badge">PySpark</div>
+                                    <div class="tech-badge">Python 3.x</div>
+                                    <div class="tech-badge">Scikit-learn</div>
+                                    <div class="tech-badge">K-Means</div>
+                                </div>
+                                <div class="arch-layer-desc">
+                                    Plateforme de traitement distribué pour calcul RFM, clustering K-Means et segmentation automatique
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <i class='bx bxs-file-code'></i>
+                                <div class="info-content">
+                                    <h4>~2,500</h4>
+                                    <p>Lines of Code</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class='bx bxs-plug'></i>
+                                <div class="info-content">
+                                    <h4>7</h4>
+                                    <p>API Endpoints</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class='bx bxs-file'></i>
+                                <div class="info-content">
+                                    <h4>3</h4>
+                                    <p>Web Pages</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class='bx bxs-brain'></i>
+                                <div class="info-content">
+                                    <h4>K-Means</h4>
+                                    <p>ML Algorithm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: ML Pipeline -->
+                <div class="tab-content" id="pipeline">
+                    <div class="doc-card">
+                        <h2><i class='bx bxs-cog'></i> Pipeline Machine Learning</h2>
+                        <p class="subtitle">Processus de Segmentation Automatique RFM avec K-Means</p>
+
+                        <div class="pipeline-section">
+                            <h3>1. Extraction des Données (Databricks)</h3>
+                            <div class="pipeline-step">
+                                <div class="step-icon">📥</div>
+                                <div class="step-content">
+                                    <h4>Union des Tables Transactionnelles</h4>
+                                    <p>Combinaison des tables <code>invoices-1</code> et <code>invoices-2</code> via SQL UNION dans Azure Databricks. Suppression des valeurs nulles dans Customer ID (~5% des transactions).</p>
+                                    <div class="code-block">
+                                        <pre>dff = spark.sql("""
+    SELECT * FROM `invoices-1`
+    UNION
+    SELECT * FROM `invoices-2`
+""")</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-section">
+                            <h3>2. Préparation des Données (PySpark + Pandas)</h3>
+                            <div class="pipeline-step">
+                                <div class="step-icon">🧹</div>
+                                <div class="step-content">
+                                    <h4>Nettoyage et Transformation</h4>
+                                    <p>Conversion des types de données (InvoiceDate → datetime, Price → float), création de TotalAmount (Quantity × Price), ajout du préfixe 'CL' aux Customer IDs.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-section">
+                            <h3>3. Feature Engineering RFM</h3>
+                            <div class="pipeline-step">
+                                <div class="step-icon">🔧</div>
+                                <div class="step-content">
+                                    <h4>Calcul des Métriques RFM</h4>
+                                    <ul>
+                                        <li><strong>Recency (R):</strong> Jours depuis le dernier achat - (snapshot_date - max(InvoiceDate))</li>
+                                        <li><strong>Frequency (F):</strong> Nombre de commandes distinctes - count(distinct Invoice)</li>
+                                        <li><strong>Monetary (M):</strong> Montant total dépensé - sum(TotalAmount)</li>
+                                    </ul>
+                                    <div class="code-block">
+                                        <pre>rfm = df.groupby('Customer ID').agg({
+    'InvoiceDate': lambda x: (snapshot_date - x.max()).days,
+    'Invoice': 'nunique',
+    'TotalAmount': 'sum'
+})</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-section">
+                            <h3>4. Normalisation (Scikit-learn)</h3>
+                            <div class="pipeline-step">
+                                <div class="step-icon">📊</div>
+                                <div class="step-content">
+                                    <h4>StandardScaler</h4>
+                                    <p>Standardisation des variables RFM (moyenne=0, écart-type=1) pour équilibrer les dimensions dans K-Means.</p>
+                                    <div class="code-block">
+                                        <pre>from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+rfm_scaled = scaler.fit_transform(rfm[['Recency','Frequency','Monetary']])</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-section">
+                            <h3>5. Clustering K-Means</h3>
+                            <div class="pipeline-step">
+                                <div class="step-icon">🧠</div>
+                                <div class="step-content">
+                                    <h4>Optimisation avec Elbow Method</h4>
+                                    <p>Détermination du nombre optimal de clusters (K=4) en analysant l'inertie pour K ∈ [1,10]. Le "coude" identifie le meilleur compromis.</p>
+                                    <div class="code-block">
+                                        <pre>from sklearn.cluster import KMeans
+kmeans = KMeans(n_clusters=4, random_state=42)
+rfm['Cluster'] = kmeans.fit_predict(rfm_scaled)</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-section">
+                            <h3>6. Labellisation des Segments</h3>
+                            <div class="pipeline-step">
+                                <div class="step-icon">🏷️</div>
+                                <div class="step-content">
+                                    <h4>Attribution des Noms Métier</h4>
+                                    <p>Mapping des clusters numériques vers des segments business : <strong>Champions</strong>, <strong>Loyal</strong>, <strong>At Risk</strong>, <strong>Lost</strong>, <strong>Potential Loyalist</strong>, <strong>Need Attention</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pipeline-section">
+                            <h3>7. Chargement dans MySQL</h3>
+                            <div class="pipeline-step">
+                                <div class="step-icon">💾</div>
+                                <div class="step-content">
+                                    <h4>Sauvegarde des Résultats</h4>
+                                    <p>Export des données segmentées depuis Databricks vers la base MySQL (table rfm_customers) pour consommation par l'application web.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Database -->
+                <div class="tab-content" id="database">
+                    <div class="doc-card">
+                        <h2><i class='bx bxs-data'></i> Database Schema</h2>
+                        <p class="subtitle">MySQL 8.0 - rfm_dashboard</p>
+                        
+                        <!-- Database Relationship Diagram -->
+                        <div class="db-diagram">
+                            <h3>📊 Entity Relationship Diagram</h3>
+                            <div class="relationship-container">
+                                <div class="table-box">
+                                    <div class="table-header">
+                                        <i class='bx bxs-user-circle'></i>
+                                        <strong>rfm_customers</strong>
+                                    </div>
+                                    <div class="table-fields">
+                                        <div class="field"><span class="key">PK</span> CustomerID</div>
+                                        <div class="field">Segment</div>
+                                        <div class="field">Recency</div>
+                                        <div class="field">Frequency</div>
+                                        <div class="field">MonetaryValue</div>
+                                        <div class="field">created_at</div>
+                                        <div class="field">updated_at</div>
+                                    </div>
+                                </div>
+
+                                <div class="relationship-line">
+                                    <div class="relation-label">1 : N</div>
+                                    <div class="arrow">───────►</div>
+                                </div>
+
+                                <div class="table-box">
+                                    <div class="table-header">
+                                        <i class='bx bxs-package'></i>
+                                        <strong>products</strong>
+                                    </div>
+                                    <div class="table-fields">
+                                        <div class="field"><span class="key">PK</span> id</div>
+                                        <div class="field"><span class="key-fk">FK</span> customer_id</div>
+                                        <div class="field">product_name</div>
+                                        <div class="field">quantity</div>
+                                        <div class="field">price</div>
+                                        <div class="field">image_url</div>
+                                        <div class="field">created_at</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="diagram-note">
+                                <i class='bx bxs-info-circle'></i>
+                                Relation One-to-Many : Un client peut avoir plusieurs produits achetés
+                            </p>
+                        </div>
+
+                        <!-- Table 1: rfm_customers -->
+                        <div class="db-table">
+                            <h3>Table 1: rfm_customers</h3>
+                            <p class="table-description">Clients segmentés avec métriques RFM calculées via Azure Databricks</p>
+                            <table class="schema-table">
+                                <thead>
+                                    <tr>
+                                        <th>Column</th>
+                                        <th>Type</th>
+                                        <th>Null</th>
+                                        <th>Key</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>CustomerID</strong></td>
+                                        <td>VARCHAR(50)</td>
+                                        <td>NO</td>
+                                        <td><span class="badge-primary">PRIMARY</span></td>
+                                        <td>Identifiant unique client (ex: CL13538)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Segment</strong></td>
+                                        <td>VARCHAR(50)</td>
+                                        <td>NO</td>
+                                        <td><span class="badge-index">INDEX</span></td>
+                                        <td>Segment K-Means (Champions, Loyal, At Risk, Lost)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Recency</strong></td>
+                                        <td>INT</td>
+                                        <td>NO</td>
+                                        <td><span class="badge-index">INDEX</span></td>
+                                        <td>Jours depuis le dernier achat (moyenne: 92 jours)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Frequency</strong></td>
+                                        <td>INT</td>
+                                        <td>NO</td>
+                                        <td><span class="badge-index">INDEX</span></td>
+                                        <td>Nombre de commandes (moyenne: 48 commandes)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>MonetaryValue</strong></td>
+                                        <td>DECIMAL(10,2)</td>
+                                        <td>NO</td>
+                                        <td>-</td>
+                                        <td>Montant total dépensé (moyenne: $14,250)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>created_at</strong></td>
+                                        <td>TIMESTAMP</td>
+                                        <td>YES</td>
+                                        <td>-</td>
+                                        <td>Date de création de l'enregistrement</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>updated_at</strong></td>
+                                        <td>TIMESTAMP</td>
+                                        <td>YES</td>
+                                        <td>-</td>
+                                        <td>Dernière mise à jour (ON UPDATE NOW())</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Table 2: products -->
+                        <div class="db-table">
+                            <h3>Table 2: products</h3>
+                            <p class="table-description">Historique des produits achetés par client</p>
+                            <table class="schema-table">
+                                <thead>
+                                    <tr>
+                                        <th>Column</th>
+                                        <th>Type</th>
+                                        <th>Null</th>
+                                        <th>Key</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>id</strong></td>
+                                        <td>INT</td>
+                                        <td>NO</td>
+                                        <td><span class="badge-primary">PRIMARY</span></td>
+                                        <td>Identifiant unique auto-incrémenté</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>customer_id</strong></td>
+                                        <td>VARCHAR(20)</td>
+                                        <td>YES</td>
+                                        <td><span class="badge-foreign">FOREIGN</span></td>
+                                        <td>Référence vers rfm_customers(CustomerID)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>product_name</strong></td>
+                                        <td>VARCHAR(255)</td>
+                                        <td>YES</td>
+                                        <td>-</td>
+                                        <td>Nom du produit (ex: Laptop, Mouse)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>quantity</strong></td>
+                                        <td>INT</td>
+                                        <td>YES</td>
+                                        <td>-</td>
+                                        <td>Quantité achetée</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>price</strong></td>
+                                        <td>DECIMAL(10,2)</td>
+                                        <td>YES</td>
+                                        <td>-</td>
+                                        <td>Prix unitaire</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>image_url</strong></td>
+                                        <td>VARCHAR(255)</td>
+                                        <td>YES</td>
+                                        <td>-</td>
+                                        <td>URL de l'image produit</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>created_at</strong></td>
+                                        <td>TIMESTAMP</td>
+                                        <td>YES</td>
+                                        <td>-</td>
+                                        <td>Date de création (CURRENT_TIMESTAMP)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: API Reference -->
+                <div class="tab-content" id="api">
+                    <div class="doc-card">
+                        <h2><i class='bx bxs-server'></i> API Reference</h2>
+                        <p class="subtitle">REST API Endpoints - Express.js 4.18.2</p>
+                        
+                        <h3>Customer Endpoints</h3>
+                        <div class="api-endpoint">
+                            <div class="api-method post">POST</div>
+                            <div class="api-path">/api/clients</div>
+                            <div class="api-desc">Récupère les clients avec filtres optionnels (segment, customerID) et pagination (limit, offset)</div>
+                        </div>
+
+                        <div class="api-endpoint">
+                            <div class="api-method post">POST</div>
+                            <div class="api-path">/api/clients/count</div>
+                            <div class="api-desc">Compte le nombre total de clients filtrés (pour pagination)</div>
+                        </div>
+
+                        <div class="api-endpoint">
+                            <div class="api-method get">GET</div>
+                            <div class="api-path">/api/statistics</div>
+                            <div class="api-desc">Statistiques globales par segment RFM (count, avg Recency, avg Frequency, avg Monetary)</div>
+                        </div>
+
+                        <div class="api-endpoint">
+                            <div class="api-method get">GET</div>
+                            <div class="api-path">/api/segments</div>
+                            <div class="api-desc">Liste des segments disponibles (Champions, Loyal, At Risk, Lost, etc.)</div>
+                        </div>
+
+                        <h3 style="margin-top: 30px;">Product Endpoints</h3>
+                        <div class="api-endpoint">
+                            <div class="api-method get">GET</div>
+                            <div class="api-path">/api/customers/:id/products</div>
+                            <div class="api-desc">Produits achetés par un client spécifique avec calcul du total dépensé</div>
+                        </div>
+
+                        <div class="api-endpoint">
+                            <div class="api-method get">GET</div>
+                            <div class="api-path">/api/products</div>
+                            <div class="api-desc">Liste tous les produits avec pagination</div>
+                        </div>
+
+                        <h3 style="margin-top: 30px;">System Endpoints</h3>
+                        <div class="api-endpoint">
+                            <div class="api-method get">GET</div>
+                            <div class="api-path">/api/health</div>
+                            <div class="api-desc">Vérification du statut serveur et connexion MySQL</div>
+                        </div>
+
+                        <div class="api-note">
+                            <i class='bx bxs-info-circle'></i>
+                            <p><strong>Note:</strong> Toutes les réponses sont au format JSON. Les erreurs retournent un code HTTP approprié (400, 404, 500) avec un message descriptif.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Features -->
+                <div class="tab-content" id="features">
+                    <div class="doc-card">
+                        <h2><i class='bx bxs-star'></i> System Features</h2>
+                        <p class="subtitle">Fonctionnalités Principales du Système</p>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class='bx bxs-dashboard'></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Dashboard Analytics Interactif</h3>
+                                <p>Visualisation en temps réel des segments clients avec graphiques interactifs Chart.js (Doughnut Chart pour distribution, Bar Chart pour métriques RFM moyennes). Cartes statistiques affichant le nombre total de clients (60), Champions (10), At Risk (10) et Lost (10).</p>
+                                <div class="feature-tags">
+                                    <span>Chart.js 4.4.0</span>
+                                    <span>Real-time</span>
+                                    <span>Interactive</span>
+                                    <span>Responsive</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class='bx bxs-user-detail'></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Gestion Client Avancée</h3>
+                                <p>Recherche et filtrage par segment RFM ou ID client. Table paginée (10 clients par page) avec fonctionnalité d'export CSV complet. Click sur ligne client pour afficher modal popup avec historique produits, images, quantités et calcul automatique du total dépensé.</p>
+                                <div class="feature-tags">
+                                    <span>Pagination</span>
+                                    <span>Search & Filter</span>
+                                    <span>Export CSV</span>
+                                    <span>Modal Popup</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class='bx bxs-package'></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Product Tracking & History</h3>
+                                <p>Suivi détaillé des produits achetés par client. Modal affiche images produits, quantités, prix unitaires et calcul automatique du subtotal (quantity × price) et total global. Permet d'analyser le panier moyen et les préférences produits par segment.</p>
+                                <div class="feature-tags">
+                                    <span>Product Images</span>
+                                    <span>Auto Calculate</span>
+                                    <span>Purchase History</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class='bx bxs-brain'></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Segmentation Automatique RFM (K-Means)</h3>
+                                <p>Machine Learning non supervisé avec algorithme K-Means pour clustering automatique des clients. Optimisation du nombre de clusters via Elbow Method (K=4 optimal). Classification en 6 segments métier : <strong>Champions</strong> (meilleurs clients), <strong>Loyal</strong> (fidèles), <strong>Potential Loyalist</strong> (potentiel), <strong>At Risk</strong> (risque churn), <strong>Need Attention</strong> (besoin d'attention), <strong>Lost</strong> (perdus).</p>
+                                <div class="feature-tags">
+                                    <span>K-Means Clustering</span>
+                                    <span>Elbow Method</span>
+                                    <span>6 Segments</span>
+                                    <span>Auto Classification</span>
+                                    <span>Azure Databricks</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class='bx bxs-bar-chart-alt-2'></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Analyse RFM Multi-Dimensionnelle</h3>
+                                <p>Calcul automatique des trois métriques RFM : Recency (jours depuis dernier achat - moyenne 92j), Frequency (nombre commandes - moyenne 48), Monetary (montant total - moyenne $14,250). Standardisation des variables via StandardScaler pour équilibrer les dimensions dans le clustering.</p>
+                                <div class="feature-tags">
+                                    <span>RFM Model</span>
+                                    <span>StandardScaler</span>
+                                    <span>Multi-dimensional</span>
+                                    <span>Pandas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Content: Technologies -->
+                <div class="tab-content" id="tech">
+                    <div class="doc-card">
+                        <h2><i class='bx bxs-wrench'></i> Technology Stack</h2>
+                        <p class="subtitle">Stack Technique Complet</p>
+                        
+                        <div class="tech-section">
+                            <h3>Frontend (Client-Side)</h3>
+                            <div class="tech-list">
+                                <span class="tech-item">HTML5</span>
+                                <span class="tech-item">CSS3 (Grid, Flexbox)</span>
+                                <span class="tech-item">JavaScript ES6+</span>
+                                <span class="tech-item">Chart.js 4.4.0</span>
+                                <span class="tech-item">Boxicons 2.0.9</span>
+                                <span class="tech-item">Google Fonts (Poppins)</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-section">
+                            <h3>Backend (Server-Side)</h3>
+                            <div class="tech-list">
+                                <span class="tech-item">Node.js 14+</span>
+                                <span class="tech-item">Express.js 4.18.2</span>
+                                <span class="tech-item">mysql2 3.6.5</span>
+                                <span class="tech-item">cors 2.8.5</span>
+                                <span class="tech-item">dotenv 16.0.3</span>
+                                <span class="tech-item">REST API</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-section">
+                            <h3>Database (Data Storage)</h3>
+                            <div class="tech-list">
+                                <span class="tech-item">MySQL 8.0</span>
+                                <span class="tech-item">2 Tables Relationnelles</span>
+                                <span class="tech-item">Connection Pool</span>
+                                <span class="tech-item">Foreign Keys (1:N)</span>
+                                <span class="tech-item">Indexes (Segment, Recency, Frequency)</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-section">
+                            <h3>Machine Learning Platform</h3>
+                            <div class="tech-list">
+                                <span class="tech-item">Microsoft Azure Databricks</span>
+                                <span class="tech-item">Apache Spark (Distributed Processing)</span>
+                                <span class="tech-item">Python 3.x</span>
+                                <span class="tech-item">PySpark (Spark API)</span>
+                                <span class="tech-item">Pandas (Data Manipulation)</span>
+                                <span class="tech-item">Scikit-learn (ML Library)</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-section">
+                            <h3>ML Algorithms & Tools</h3>
+                            <div class="tech-list">
+                                <span class="tech-item">K-Means Clustering</span>
+                                <span class="tech-item">Elbow Method (Optimization)</span>
+                                <span class="tech-item">StandardScaler (Normalization)</span>
+                                <span class="tech-item">RFM Feature Engineering</span>
+                            </div>
+                        </div>
+
+                        <div class="ml-workflow">
+                            <h3>ML Workflow Architecture</h3>
+                            <div class="workflow-diagram">
+                                <div class="workflow-step">
+                                    <div class="workflow-icon">📥</div>
+                                    <div class="workflow-label">Data Extraction</div>
+                                    <div class="workflow-tech">Databricks SQL</div>
+                                </div>
+                                <div class="workflow-arrow">→</div>
+                                <div class="workflow-step">
+                                    <div class="workflow-icon">🧹</div>
+                                    <div class="workflow-label">Cleaning</div>
+                                    <div class="workflow-tech">PySpark + Pandas</div>
+                                </div>
+                                <div class="workflow-arrow">→</div>
+                                <div class="workflow-step">
+                                    <div class="workflow-icon">🔧</div>
+                                    <div class="workflow-label">RFM Calc</div>
+                                    <div class="workflow-tech">Feature Engineering</div>
+                                </div>
+                                <div class="workflow-arrow">→</div>
+                                <div class="workflow-step">
+                                    <div class="workflow-icon">📊</div>
+                                    <div class="workflow-label">Scaling</div>
+                                    <div class="workflow-tech">StandardScaler</div>
+                                </div>
+                                <div class="workflow-arrow">→</div>
+                                <div class="workflow-step">
+                                    <div class="workflow-icon">🧠</div>
+                                    <div class="workflow-label">K-Means</div>
+                                    <div class="workflow-tech">Scikit-learn</div>
+                                </div>
+                                <div class="workflow-arrow">→</div>
+                                <div class="workflow-step">
+                                    <div class="workflow-icon">💾</div>
+                                    <div class="workflow-label">Export</div>
+                                    <div class="workflow-tech">MySQL 8.0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <style>
+        /* Tabs Styling */
+        .tabs-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .tabs-nav {
+            display: flex;
+            border-bottom: 2px solid #e5e7eb;
+            padding: 0 20px;
+            background: #f9fafb;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 16px 20px;
+            border: none;
+            background: none;
+            font-size: 13px;
+            font-weight: 600;
+            color: #6b7280;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: #0078d4;
+            background: rgba(0,120,212,0.05);
+        }
+
+        .tab-btn.active {
+            color: #0078d4;
+            border-bottom-color: #0078d4;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .doc-card {
+            max-width: 100%;
+        }
+
+        .doc-card h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .doc-card h3 {
+            font-size: 18px;
+            margin: 25px 0 15px 0;
+            color: #1f2937;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+        .table-description {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        /* Architecture Diagram */
+        .architecture-diagram {
+            margin: 30px 0;
+        }
+
+        .arch-layer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .arch-layer-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .arch-layer-title i {
+            font-size: 24px;
+        }
+
+        .arch-layer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tech-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .arch-layer-desc {
+            opacity: 0.9;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .arch-arrow {
+            text-align: center;
+            font-size: 32px;
+            color: #667eea;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 10px;
+        }
+
+        .info-item i {
+            font-size: 32px;
+            color: #0078d4;
+        }
+
+        .info-content h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .info-content p {
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        /* Pipeline Section */
+        .pipeline-section {
+            margin-bottom: 35px;
+        }
+
+        .pipeline-step {
+            display: flex;
+            gap: 20px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 10px;
+            border-left: 4px solid #0078d4;
+        }
+
+        .step-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .step-content p, .step-content ul {
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .step-content ul {
+            margin-left: 20px;
+        }
+
+        .step-content li {
+            margin-bottom: 8px;
+        }
+
+        .code-block {
+            background: #1f2937;
+            color: #10b981;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        code {
+            background: #e5e7eb;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #ef4444;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Database Diagram */
+        .db-diagram {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+
+        .db-diagram h3 {
+            margin-bottom: 25px;
+            color: #1f2937;
+        }
+
+        .relationship-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .table-box {
+            background: white;
+            border: 2px solid #0078d4;
+            border-radius: 10px;
+            min-width: 250px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .table-header {
+            background: #0078d4;
+            color: white;
+            padding: 12px 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .table-header i {
+            font-size: 20px;
+        }
+
+        .table-fields {
+            padding: 15px;
+        }
+
+        .field {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .field:last-child {
+            border-bottom: none;
+        }
+
+        .key {
+            background: #0078d4;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .key-fk {
+            background: #10b981;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .relationship-line {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .relation-label {
+            background: #667eea;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .arrow {
+            font-size: 24px;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .diagram-note {
+            background: #eff6ff;
+            border-left: 4px solid #0078d4;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1e40af;
+        }
+
+        .diagram-note i {
+            font-size: 24px;
+        }
+
+        /* Database Table */
+        .db-table {
+            margin: 30px 0;
+        }
+
+        .db-table h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .schema-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .schema-table th,
+        .schema-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .schema-table th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .badge-primary {
+            background: #0078d4;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-foreign {
+            background: #10b981;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-index {
+            background: #8b5cf6;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* API Endpoints */
+        .api-endpoint {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .api-method {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .api-method.get {
+            background: #10b981;
+            color: white;
+        }
+
+        .api-method.post {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .api-path {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: #1f2937;
+            flex: 1;
+        }
+
+        .api-desc {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .api-note {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .api-note i {
+            font-size: 24px;
+            color: #f59e0b;
+            flex-shrink: 0;
+        }
+
+        /* Features */
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f9fafb;
+            border-radius: 12px;
+            border-left: 4px solid #0078d4;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon i {
+            font-size: 32px;
+            color: white;
+        }
+
+        .feature-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .feature-content p {
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .feature-tags span {
+            background: #0078d4;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* Tech Stack */
+        .tech-section {
+            margin-bottom: 30px;
+        }
+
+        .tech-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ML Workflow */
+        .ml-workflow {
+            margin-top: 40px;
+            padding: 25px;
+            background: #f9fafb;
+            border-radius: 12px;
+        }
+
+        .ml-workflow h3 {
+            margin-bottom: 25px;
+        }
+
+        .workflow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .workflow-step {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .workflow-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .workflow-label {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .workflow-tech {
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        .workflow-arrow {
+            font-size: 24px;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .relationship-container {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .workflow-diagram {
+                flex-direction: column;
+            }
+
+            .workflow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+
+    <script>
+        // Tabs functionality
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Sidebar toggle
+        document.querySelector('.toggle-sidebar')?.addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+            
+            if (sidebar.style.left === '-260px') {
+                sidebar.style.left = '0';
+                content.style.left = '260px';
+                content.style.width = 'calc(100% - 260px)';
+            } else {
+                sidebar.style.left = '-260px';
+                content.style.left = '0';
+                content.style.width = '100%';
+            }
+        });
+    </script>
+</body>
+</html>

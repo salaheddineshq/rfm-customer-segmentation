@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Databricks Dashboard</title>
+
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-body">
+
+  <div class="login-container">
+      <div class="login-header">
+          <i class='bx bxs-data'></i>
+          <h2>Databricks Dashboard</h2>
+          <p>Please login to continue</p>
+      </div>
+
+      <div class="input-group">
+          <i class='bx bxs-user'></i>
+          <input type="text" id="username" placeholder="Username">
+      </div>
+
+      <div class="input-group">
+          <i class='bx bxs-lock-alt'></i>
+          <input type="password" id="password" placeholder="Password">
+      </div>
+
+      <button id="loginBtn" class="login-btn">
+          <i class='bx bx-log-in'></i> Login
+      </button>
+
+      <p id="errorMsg" class="error-msg"></p>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

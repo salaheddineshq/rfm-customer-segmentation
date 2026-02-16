@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers - Customer Analytics</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="dashboard.html" class="brand">
+            <i class='bx bxs-data icon'></i>
+            <span>Analytics</span>
+        </a>
+        <ul class="side-menu">
+            <li><a href="dashboard.html"><i class='bx bxs-dashboard icon'></i> Dashboard</a></li>
+            <li class="divider" data-text="Analytics">Analytics</li>
+            <li><a href="customers.html" class="active"><i class='bx bxs-user-detail icon'></i> Customers</a></li>
+            <li><a href="products.html"><i class='bx bxs-package'></i> Products</a></li>
+
+            <!-- ✅ AJOUTEZ CETTE SECTION -->
+            <li class="divider" data-text="Information">Information</li>
+            <li><a href="documentation.html"><i class='bx bxs-book-content'></i> Documentation</a></li>
+            <li><a href="help.html"><i class='bx bxs-help-circle'></i> Help & Support</a></li>
+
+            <li class="divider" data-text="Settings">Settings</li>
+            <li><a href="#"><i class='bx bxs-cog icon'></i> Settings</a></li>
+        </ul>
+        <div class="ads">
+            <div class="wrapper">
+                <p>RFM Analytics <span>Pro</span></p>
+                <p class="version">v2.0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu toggle-sidebar'></i>
+            <form action="#" onsubmit="return false;">
+                <div class="form-group">
+                    <input type="text" id="globalSearch" placeholder="Quick search...">
+                    <i class='bx bx-search icon'></i>
+                </div>
+            </form>
+            <div class="notification-area">
+                <button class="btn-icon" id="refreshBtn" title="Refresh data">
+                    <i class='bx bx-refresh'></i>
+                </button>
+            </div>
+            <span class="divider"></span>
+            <div class="profile">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=0078d4&color=fff" alt="Profile">
+                <ul class="profile-link">
+                    <li><a href="#"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
+                    <li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
+                    <li>
+                        <a href="#" id="logoutBtn">
+                            <i class='bx bxs-log-out-circle'></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- MAIN CONTENT -->
+        <main>
+            <h1 class="title">Customer Database</h1>
+            <ul class="breadcrumbs">
+                <li><a href="dashboard.html">Home</a></li>
+                <li class="divider">/</li>
+                <li><a href="#" class="active">Customers</a></li>
+            </ul>
+
+            <!-- Customer Search and Table -->
+            <div class="customers-container">
+                <div class="customers-card">
+                    <div class="card-header">
+                        <div class="header-left">
+                            <h3><i class='bx bxs-user-detail'></i> Customer Search</h3>
+                            <p class="subtitle">Search and filter customer database</p>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn-secondary" id="clearFilters">
+                                <i class='bx bx-reset'></i> Clear
+                            </button>
+                            <button class="btn-primary" id="exportCsv">
+                                <i class='bx bx-download'></i> Export
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Search Filters -->
+                    <div class="search-filters">
+                        <div class="filter-item">
+                            <label for="segmentSelect">
+                                <i class='bx bxs-filter-alt'></i> Segment
+                            </label>
+                            <select id="segmentSelect" class="form-control">
+                                <option value="">All Segments</option>
+                                <option value="Champions">Champions</option>
+                                <option value="Loyal">Loyal</option>
+                                <option value="Potential Loyalist">Potential Loyalist</option>
+                                <option value="At Risk">At Risk</option>
+                                <option value="Need Attention">Need Attention</option>
+                                <option value="Lost">Lost</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-item">
+                            <label for="customerIdInput">
+                                <i class='bx bxs-user'></i> Customer ID
+                            </label>
+                            <input type="text" id="customerIdInput" class="form-control"
+                                placeholder="Enter customer ID" />
+                        </div>
+
+                        <div class="filter-item">
+                            <label>&nbsp;</label>
+                            <button id="loadBtn" class="btn-search">
+                                <i class='bx bx-search-alt'></i> Search
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Loading Indicator -->
+                    <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Loading customer data...</p>
+                    </div>
+
+                    <!-- Results Table -->
+                    <div id="tableContainer" style="display:none;">
+                        <div class="table-controls">
+                            <div class="table-info">
+                                <h4>Search Results</h4>
+                                <p class="table-count">
+                                    Showing <span id="resultCount">0</span> customers
+                                </p>
+                            </div>
+                            <div class="pagination-controls">
+                                <button id="prevPage" class="btn-icon" disabled>
+                                    <i class='bx bx-chevron-left'></i>
+                                </button>
+                                <span id="pageInfo" class="page-info">Page 1 of 1</span>
+                                <button id="nextPage" class="btn-icon">
+                                    <i class='bx bx-chevron-right'></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table id="resultTable" class="data-table">
+                                <thead>
+                                    <tr id="tableHeader"></tr>
+                                </thead>
+                                <tbody id="tableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- No Results Message -->
+                    <div id="noResults" class="no-results" style="display: none;">
+                        <i class='bx bxs-inbox'></i>
+                        <p>No customers found</p>
+                        <button class="btn-secondary" onclick="document.getElementById('clearFilters').click()">
+                            Clear Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CUSTOMER PRODUCTS MODAL ===== -->
+            <div id="customerModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Customer Products</h3>
+                        <span class="close-btn" id="closeModal">&times;</span>
+                    </div>
+
+                    <div id="modalBody">
+                        <div class="loading-indicator">
+                            <div class="spinner"></div>
+                            <p>Loading products...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </section>
+
+    <script src="customers.js"></script>
+</body>
+
+</html>

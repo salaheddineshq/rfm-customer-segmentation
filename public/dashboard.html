@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Customer Analytics</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+
+<body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="dashboard.html" class="brand">
+            <i class='bx bxs-data icon'></i>
+            <span>Analytics</span>
+        </a>
+        <ul class="side-menu">
+            <li><a href="dashboard.html" class="active"><i class='bx bxs-dashboard icon'></i> Dashboard</a></li>
+            <li class="divider" data-text="Analytics">Analytics</li>
+            <li><a href="customers.html"><i class='bx bxs-user-detail icon'></i> Customers</a></li>
+            <li><a href="products.html"><i class='bx bxs-package'></i> Products</a></li>
+
+            <!-- ✅ AJOUTEZ CETTE SECTION -->
+            <li class="divider" data-text="Information">Information</li>
+            <li><a href="documentation.html"><i class='bx bxs-book-content'></i> Documentation</a></li>
+            <li><a href="help.html"><i class='bx bxs-help-circle'></i> Help & Support</a></li>
+
+            <li class="divider" data-text="Settings">Settings</li>
+            <li><a href="#"><i class='bx bxs-cog icon'></i> Settings</a></li>
+        </ul>
+        <div class="ads">
+            <div class="wrapper">
+                <p>RFM Analytics <span>Pro</span></p>
+                <p class="version">v2.0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu toggle-sidebar'></i>
+            <form action="#" onsubmit="return false;">
+                <div class="form-group">
+                    <input type="text" placeholder="Search...">
+                    <i class='bx bx-search icon'></i>
+                </div>
+            </form>
+            <div class="notification-area">
+                <button class="btn-icon" id="refreshBtn" title="Refresh data">
+                    <i class='bx bx-refresh'></i>
+                </button>
+            </div>
+            <span class="divider"></span>
+            <div class="profile">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=0078d4&color=fff" alt="Profile">
+                <ul class="profile-link">
+                    <li><a href="#"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
+                    <li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
+                    <li>
+                        <a href="#" id="logoutBtn">
+                            <i class='bx bxs-log-out-circle'></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- MAIN DASHBOARD -->
+        <main>
+            <h1 class="title">Dashboard Overview</h1>
+            <ul class="breadcrumbs">
+                <li><a href="#">Home</a></li>
+                <li class="divider">/</li>
+                <li><a href="#" class="active">Dashboard</a></li>
+            </ul>
+
+            <!-- Statistics Cards -->
+            <div class="info-data" id="statsCards">
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2 id="totalCustomers">-</h2>
+                            <p>Total Customers</p>
+                        </div>
+                        <i class='bx bxs-user-plus icon'></i>
+                    </div>
+                    <span class="progress" data-value="100%"></span>
+                    <span class="label">Active</span>
+                </div>
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2 id="champions">-</h2>
+                            <p>Champions</p>
+                        </div>
+                        <i class='bx bxs-trophy icon'></i>
+                    </div>
+                    <span class="progress" data-value="40%"></span>
+                    <span class="label">Top Tier</span>
+                </div>
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2 id="atRisk">-</h2>
+                            <p>At Risk</p>
+                        </div>
+                        <i class='bx bxs-error-circle icon down'></i>
+                    </div>
+                    <span class="progress" data-value="30%"></span>
+                    <span class="label">Needs Attention</span>
+                </div>
+                <div class="card">
+                    <div class="head">
+                        <div>
+                            <h2 id="lost">-</h2>
+                            <p>Lost Customers</p>
+                        </div>
+                        <i class='bx bxs-user-x icon down'></i>
+                    </div>
+                    <span class="progress" data-value="15%"></span>
+                    <span class="label">Churned</span>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-container">
+                <!-- Customer Segment Distribution -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class='bx bxs-pie-chart-alt-2'></i> Customer Segments</h3>
+                        <div class="chart-actions">
+                            <button class="btn-icon-small" title="Refresh">
+                                <i class='bx bx-refresh'></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="segmentChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Customer Growth Trend -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3><i class='bx bxs-bar-chart-alt-2'></i> RFM Metrics Overview</h3>
+                        <div class="chart-actions">
+                            <button class="btn-icon-small" title="Refresh">
+                                <i class='bx bx-refresh'></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="rfmChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="action-cards">
+                    <a href="customers.html" class="action-card">
+                        <i class='bx bxs-user-detail'></i>
+                        <h4>View All Customers</h4>
+                        <p>Browse and search customer database</p>
+                    </a>
+                    <a href="customers.html?segment=Champions" class="action-card">
+                        <i class='bx bxs-trophy'></i>
+                        <h4>View Champions</h4>
+                        <p>See your best customers</p>
+                    </a>
+                    <a href="customers.html?segment=At+Risk" class="action-card">
+                        <i class='bx bxs-error-circle'></i>
+                        <h4>At Risk Customers</h4>
+                        <p>Customers needing attention</p>
+                    </a>
+                    <a href="#" class="action-card">
+                        <i class='bx bxs-download'></i>
+                        <h4>Export Report</h4>
+                        <p>Download customer analytics</p>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

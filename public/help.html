@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - Customer Analytics</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="dashboard.html" class="brand">
+            <i class='bx bxs-data icon'></i>
+            <span>Analytics</span>
+        </a>
+        <ul class="side-menu">
+            <li><a href="dashboard.html"><i class='bx bxs-dashboard icon'></i> Dashboard</a></li>
+
+            <li class="divider" data-text="Analytics">Analytics</li>
+            <li><a href="customers.html"><i class='bx bxs-user-detail icon'></i> Customers</a></li>
+            <li><a href="products.html"><i class='bx bxs-package'></i> Products</a></li>
+
+
+            <li class="divider" data-text="Information">Information</li>
+            <li><a href="documentation.html"><i class='bx bxs-book-content icon'></i> Documentation</a></li>
+            <li><a href="help.html" class="active"><i class='bx bxs-help-circle icon'></i> Help & Support</a></li>
+
+            <li class="divider" data-text="Settings">Settings</li>
+            <li><a href="settings.html"><i class='bx bxs-cog icon'></i> Settings</a></li>
+        </ul>
+        <div class="ads">
+            <div class="wrapper">
+                <p>RFM Analytics <span>Pro</span></p>
+                <p class="version">v2.0</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu toggle-sidebar'></i>
+            <form action="#" onsubmit="return false;">
+                <div class="form-group">
+                    <input type="text" placeholder="Search help articles...">
+                    <i class='bx bx-search icon'></i>
+                </div>
+            </form>
+            <div class="notification-area">
+                <button class="btn-icon" title="Refresh">
+                    <i class='bx bx-refresh'></i>
+                </button>
+            </div>
+            <span class="divider"></span>
+            <div class="profile">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=0078d4&color=fff" alt="Profile">
+                <ul class="profile-link">
+                    <li><a href="#"><i class='bx bxs-user-circle icon'></i> Profile</a></li>
+                    <li><a href="#"><i class='bx bxs-cog'></i> Settings</a></li>
+                    <li><a href="#"><i class='bx bxs-log-out-circle'></i> Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- MAIN -->
+        <main>
+            <h1 class="title">Help & Support</h1>
+            <ul class="breadcrumbs">
+                <li><a href="dashboard.html">Home</a></li>
+                <li class="divider">/</li>
+                <li><a href="#" class="active">Help</a></li>
+            </ul>
+
+            <!-- Help Content -->
+            <div class="help-container">
+                <!-- Getting Started -->
+                <div class="help-card">
+                    <div class="help-header">
+                        <i class='bx bxs-rocket'></i>
+                        <h2>Getting Started</h2>
+                    </div>
+                    <p>Welcome to RFM Analytics! This dashboard helps you analyze and manage customer data using RFM
+                        (Recency, Frequency, Monetary) metrics.</p>
+
+                    <h3>Quick Tour:</h3>
+                    <ol>
+                        <li><strong>Dashboard:</strong> View overview statistics and charts</li>
+                        <li><strong>Customers:</strong> Search and filter customer database</li>
+                        <li><strong>Products:</strong> Track, filter, and view detailed information about all products, including stock, price, revenue, and product images.</li>
+
+                    </ol>
+                </div>
+
+                <!-- Search Customers -->
+                <div class="help-card">
+                    <div class="help-header">
+                        <i class='bx bxs-search-alt-2'></i>
+                        <h2>How to Search Customers</h2>
+                    </div>
+
+                    <div class="help-step">
+                        <span class="step-number">1</span>
+                        <div class="step-content">
+                            <h4>Go to Customers Page</h4>
+                            <p>Click "Customers" in the sidebar menu</p>
+                        </div>
+                    </div>
+
+                    <div class="help-step">
+                        <span class="step-number">2</span>
+                        <div class="step-content">
+                            <h4>Filter by Segment</h4>
+                            <p>Select a customer segment from the dropdown (Champions, Loyal, At Risk, etc.)</p>
+                        </div>
+                    </div>
+
+                    <div class="help-step">
+                        <span class="step-number">3</span>
+                        <div class="step-content">
+                            <h4>Search by ID (Optional)</h4>
+                            <p>Enter a specific customer ID to find individual customers</p>
+                        </div>
+                    </div>
+
+                    <div class="help-step">
+                        <span class="step-number">4</span>
+                        <div class="step-content">
+                            <h4>Click Search</h4>
+                            <p>Results will appear in the table below with pagination</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Understanding RFM -->
+                <div class="help-card">
+                    <div class="help-header">
+                        <i class='bx bxs-bar-chart-alt-2'></i>
+                        <h2>Understanding RFM Metrics</h2>
+                    </div>
+
+                    <div class="rfm-metric">
+                        <h3><span class="badge-r">R</span> Recency</h3>
+                        <p>How recently a customer made a purchase. Lower values are better (recent purchase).</p>
+                        <p class="metric-example">Example: Recency = 5 means last purchase was 5 days ago</p>
+                    </div>
+
+                    <div class="rfm-metric">
+                        <h3><span class="badge-f">F</span> Frequency</h3>
+                        <p>How often a customer makes purchases. Higher values are better (frequent buyer).</p>
+                        <p class="metric-example">Example: Frequency = 50 means 50 purchases total</p>
+                    </div>
+
+                    <div class="rfm-metric">
+                        <h3><span class="badge-m">M</span> Monetary Value</h3>
+                        <p>Total amount spent by the customer. Higher values are better (high spender).</p>
+                        <p class="metric-example">Example: Monetary = $15,000 total spent</p>
+                    </div>
+                </div>
+
+                <!-- Customer Segments -->
+                <div class="help-card">
+                    <div class="help-header">
+                        <i class='bx bxs-category'></i>
+                        <h2>Customer Segments Explained</h2>
+                    </div>
+
+                    <div class="segment-item">
+                        <div class="segment-badge champions">Champions</div>
+                        <p>Best customers - high recency, frequency, and monetary values. These are your most valuable
+                            customers.</p>
+                    </div>
+
+                    <div class="segment-item">
+                        <div class="segment-badge loyal">Loyal</div>
+                        <p>Regular customers with consistent purchases. Good frequency and monetary values.</p>
+                    </div>
+
+                    <div class="segment-item">
+                        <div class="segment-badge potential">Potential Loyalist</div>
+                        <p>Recent customers showing good potential. Worth nurturing into loyal customers.</p>
+                    </div>
+
+                    <div class="segment-item">
+                        <div class="segment-badge at-risk">At Risk</div>
+                        <p>Previously good customers who haven't purchased recently. Need attention to retain.</p>
+                    </div>
+
+                    <div class="segment-item">
+                        <div class="segment-badge need-attention">Need Attention</div>
+                        <p>Below average performance across metrics. Consider special offers or campaigns.</p>
+                    </div>
+
+                    <div class="segment-item">
+                        <div class="segment-badge lost">Lost</div>
+                        <p>Haven't purchased in a long time. May require win-back campaigns.</p>
+                    </div>
+                </div>
+
+                <!-- Export Data -->
+                <div class="help-card">
+                    <div class="help-header">
+                        <i class='bx bxs-download'></i>
+                        <h2>Export Data</h2>
+                    </div>
+
+                    <p>You can export customer data to CSV format for external analysis:</p>
+
+                    <ol>
+                        <li>Search for customers using filters</li>
+                        <li>Click the "Export" button</li>
+                        <li>File will download automatically</li>
+                        <li>Export includes ALL filtered results (not just current page)</li>
+                    </ol>
+
+                    <div class="tip-box">
+                        <i class='bx bxs-bulb'></i>
+                        <p><strong>Tip:</strong> Export without filters to download all customers in the database.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="help-card">
+                    <div class="help-header">
+                        <i class='bx bxs-message-square-dots'></i>
+                        <h2>Frequently Asked Questions</h2>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Q: How often is the data updated?</h4>
+                        <p>A: Data is updated in real-time. Use the refresh button to reload statistics.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Q: How many customers can I view per page?</h4>
+                        <p>A: The table displays 10 customers per page. Use pagination to browse through results.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Q: Can I search for multiple customers at once?</h4>
+                        <p>A: Currently, search one customer ID at a time. Use segment filters to find groups of
+                            customers.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Q: What chart types are available?</h4>
+                        <p>A: Dashboard features a doughnut chart (segment distribution) and bar chart (RFM metrics by
+                            segment).</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>Q: How do I clear my search filters?</h4>
+                        <p>A: Click the "Clear" button to reset all filters and reload all customers.</p>
+                    </div>
+                </div>
+
+                <!-- Contact Support -->
+                <div class="help-card contact-card">
+                    <div class="help-header">
+                        <i class='bx bxs-envelope'></i>
+                        <h2>Contact Support</h2>
+                    </div>
+
+                    <p>Still need help? Our support team is here to assist you.</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class='bx bxs-envelope'></i>
+                            <h4>Email</h4>
+                            <p>team@ismagi.ac.ma</p>
+                        </div>
+                        <div class="contact-method">
+                            <i class='bx bxs-phone'></i>
+                            <h4>Phone</h4>
+                            <p>+212 0101-0101</p>
+                        </div>
+                        <div class="contact-method">
+                            <i class='bx bxs-chat'></i>
+                            <h4>Live Chat</h4>
+                            <p>Available Mon-Fri, 9am-5pm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+
+    <style>
+        /* Help Container */
+        .help-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .help-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .help-header i {
+            font-size: 28px;
+            color: #0078d4;
+        }
+
+        .help-header h2 {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .help-card p {
+            line-height: 1.7;
+            color: #4b5563;
+            margin-bottom: 15px;
+        }
+
+        .help-card ol,
+        .help-card ul {
+            margin-left: 20px;
+            line-height: 1.9;
+            color: #4b5563;
+        }
+
+        .help-card li {
+            margin-bottom: 10px;
+        }
+
+        .help-card h3 {
+            font-size: 17px;
+            margin: 20px 0 12px 0;
+            color: #1f2937;
+        }
+
+        /* Help Steps */
+        .help-step {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: #0078d4;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: #1f2937;
+        }
+
+        .step-content p {
+            color: #6b7280;
+            margin: 0;
+        }
+
+        /* RFM Metrics */
+        .rfm-metric {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 8px;
+        }
+
+        .rfm-metric h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 10px 0;
+        }
+
+        .badge-r,
+        .badge-f,
+        .badge-m {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .badge-r {
+            background: #3b82f6;
+        }
+
+        .badge-f {
+            background: #8b5cf6;
+        }
+
+        .badge-m {
+            background: #10b981;
+        }
+
+        .metric-example {
+            font-size: 13px;
+            color: #6b7280;
+            font-style: italic;
+            margin-top: 8px !important;
+        }
+
+        /* Segments */
+        .segment-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .segment-badge {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            color: white;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .segment-badge.champions {
+            background: #10b981;
+        }
+
+        .segment-badge.loyal {
+            background: #3b82f6;
+        }
+
+        .segment-badge.potential {
+            background: #8b5cf6;
+        }
+
+        .segment-badge.at-risk {
+            background: #f59e0b;
+        }
+
+        .segment-badge.need-attention {
+            background: #ef4444;
+        }
+
+        .segment-badge.lost {
+            background: #6b7280;
+        }
+
+        /* Tip Box */
+        .tip-box {
+            background: #eff6ff;
+            border-left: 4px solid #0078d4;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .tip-box i {
+            font-size: 24px;
+            color: #0078d4;
+        }
+
+        .tip-box p {
+            margin: 0;
+            color: #1e40af;
+        }
+
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .faq-item h4 {
+            color: #1f2937;
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: #6b7280;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact-card .help-header {
+            border-bottom-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-card .help-header i,
+        .contact-card .help-header h2 {
+            color: white;
+        }
+
+        .contact-card p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .contact-method {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-method i {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .contact-method h4 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .contact-method p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Sidebar toggle
+        document.querySelector('.toggle-sidebar')?.addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            const content = document.getElementById('content');
+
+            if (sidebar.style.left === '-260px') {
+                sidebar.style.left = '0';
+                content.style.left = '260px';
+                content.style.width = 'calc(100% - 260px)';
+            } else {
+                sidebar.style.left = '-260px';
+                content.style.left = '0';
+                content.style.width = '100%';
+            }
+        });
+    </script>
+</body>
+
+</html>
